@@ -1,6 +1,5 @@
 import streamlit as st
-import spacy
-from spacy import displacy
+import spacy_streamlit
 
 
 def st_ui():
@@ -13,12 +12,10 @@ def st_ui():
   Button=st.sidebar.button('content Analytics')
   #button=st.sidebar.button('Risk Analytics')
   Enter_text = st.sidebar.text_input("Text to search")
+  models = ["en_core_web_sm", "en_core_web_md"]
+  default_text = "Sundar Pichai is the CEO of Google."
+  spacy_streamlit.visualize(models, default_text)
   
-  text = "When Sebastian Thrun started working on self-driving cars at Google in 2007, few people outside of the company took him seriously."
-
-  nlp = spacy.load("en_core_web_sm")
-  doc = nlp(text)
-  displacy.render(doc, style="ent")
    
 if __name__ == "__main__":
   st_ui()
