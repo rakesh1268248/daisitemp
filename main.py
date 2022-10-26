@@ -1,5 +1,6 @@
 import streamlit as st
-import spacy_streamlit
+import spacy
+from spacy_streamlit import visualize_ner
 
 
 def st_ui():
@@ -12,9 +13,10 @@ def st_ui():
   Button=st.sidebar.button('content Analytics')
   #button=st.sidebar.button('Risk Analytics')
   Enter_text = st.sidebar.text_input("Text to search")
-  models = ["en_core_web_sm", "en_core_web_md"]
-  default_text = "Sundar Pichai is the CEO of Google."
-  spacy_streamlit.visualize(models, default_text)
+  
+  nlp = spacy.load("en_core_web_sm")
+  doc = nlp("Sundar Pichai is the CEO of Google.")
+  visualize_ner(doc, labels=nlp.get_pipe("ner").labels)
   
    
 if __name__ == "__main__":
