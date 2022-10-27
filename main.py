@@ -2,7 +2,7 @@ import streamlit as st
 import spacy
 import spacy_streamlit
 from spacy_streamlit import visualize_ner
-!python -m spacy download en_core_web_sm
+python -m spacy download en_core_web_sm
 # !python -m spacy download en_core_web_lg
 
 
