@@ -1,9 +1,9 @@
 import streamlit as st
 import spacy
 from spacy import displacy
-# !python -m spacy download en_core_web_sm
+!python -m spacy download en_core_web_sm
 # !python -m spacy download en_core_web_lg
-nlp = spacy.load('en_core_web_lg')
+nlp = spacy.load('en_core_web_sm')
 
 
 def st_ui():
